@@ -8,8 +8,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/admin/partials
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/admin/partials
  */
 ?>
 

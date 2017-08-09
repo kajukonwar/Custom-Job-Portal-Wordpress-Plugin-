@@ -6,8 +6,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  * @author     Kaju Konwar <kaju.k2@gmail.com>
  */
-class Cps_job_portal_Loader {
+class Cps_Job_Portal_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

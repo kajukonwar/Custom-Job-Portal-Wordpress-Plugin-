@@ -6,8 +6,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  * @author     Kaju Konwar <kaju.k2@gmail.com>
  */
-class Cps_job_portal_Activator {
+class Cps_Job_Portal_Activator {
 
 	/**
 	 * Short Description. (use period)

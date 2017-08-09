@@ -9,8 +9,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  * @author     Kaju Konwar <kaju.k2@gmail.com>
  */
-class Cps_job_portal_i18n {
+class Cps_Job_Portal_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Cps_job_portal_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'cps_job_portal',
+			'cps-job-portal',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

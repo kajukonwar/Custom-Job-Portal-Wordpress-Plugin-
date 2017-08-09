@@ -10,19 +10,18 @@
  *
  * @link              www.coffeepost.in
  * @since             1.0.0
- * @package           Cps_job_portal
+ * @package           Cps_Job_Portal
  *
  * @wordpress-plugin
  * Plugin Name:       Job Portal By CoffeePost
  * Plugin URI:        www.coffeepost.in
- * Description:       Provides custom functionalities
- specifically to this job portal
+ * Description:       Custom functionalities exclusively for  StarTall Job Portal website
  * Version:           1.0.0
  * Author:            Kaju Konwar
  * Author URI:        www.coffeepost.in
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       cps_job_portal
+ * Text Domain:       cps-job-portal
  * Domain Path:       /languages
  */
 
@@ -33,20 +32,20 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-cps_job_portal-activator.php
+ * This action is documented in includes/class-cps-job-portal-activator.php
  */
 function activate_cps_job_portal() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cps_job_portal-activator.php';
-	Cps_job_portal_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cps-job-portal-activator.php';
+	Cps_Job_Portal_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-cps_job_portal-deactivator.php
+ * This action is documented in includes/class-cps-job-portal-deactivator.php
  */
 function deactivate_cps_job_portal() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cps_job_portal-deactivator.php';
-	Cps_job_portal_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-cps-job-portal-deactivator.php';
+	Cps_Job_Portal_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_cps_job_portal' );
@@ -56,7 +55,7 @@ register_deactivation_hook( __FILE__, 'deactivate_cps_job_portal' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-cps_job_portal.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-cps-job-portal.php';
 
 /**
  * Begins execution of the plugin.
@@ -69,7 +68,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-cps_job_portal.php';
  */
 function run_cps_job_portal() {
 
-	$plugin = new Cps_job_portal();
+	$plugin = new Cps_Job_Portal();
 	$plugin->run();
 
 }

@@ -9,8 +9,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/includes
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/includes
  * @author     Kaju Konwar <kaju.k2@gmail.com>
  */
-class Cps_job_portal {
+class Cps_Job_Portal {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Cps_job_portal {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Cps_job_portal_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Cps_Job_Portal_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -68,7 +68,7 @@ class Cps_job_portal {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'cps_job_portal';
+		$this->plugin_name = 'cps-job-portal';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -83,10 +83,10 @@ class Cps_job_portal {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Cps_job_portal_Loader. Orchestrates the hooks of the plugin.
-	 * - Cps_job_portal_i18n. Defines internationalization functionality.
-	 * - Cps_job_portal_Admin. Defines all hooks for the admin area.
-	 * - Cps_job_portal_Public. Defines all hooks for the public side of the site.
+	 * - Cps_Job_Portal_Loader. Orchestrates the hooks of the plugin.
+	 * - Cps_Job_Portal_i18n. Defines internationalization functionality.
+	 * - Cps_Job_Portal_Admin. Defines all hooks for the admin area.
+	 * - Cps_Job_Portal_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -100,33 +100,55 @@ class Cps_job_portal {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cps_job_portal-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cps-job-portal-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cps_job_portal-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-cps-job-portal-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-cps_job_portal-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-cps-job-portal-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-cps_job_portal-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-cps-job-portal-public.php';
 
-		$this->loader = new Cps_job_portal_Loader();
+
+		/**
+		 * The class responsible for 
+		 multistep registration form validation
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-multireg-validate.php';
+
+
+
+		/**
+		 * The class responsible for 
+		 multistep registration database functionalities
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-multireg-db.php';
+
+
+		/**
+		 * The class responsible for all global functions/variables that occur in the 
+		 * public-facing side of the site.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-cps-job-portal-public-globals.php';
+
+		$this->loader = new Cps_Job_Portal_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Cps_job_portal_i18n class in order to set the domain and to register the hook
+	 * Uses the Cps_Job_Portal_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -134,7 +156,7 @@ class Cps_job_portal {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Cps_job_portal_i18n();
+		$plugin_i18n = new Cps_Job_Portal_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -149,7 +171,7 @@ class Cps_job_portal {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Cps_job_portal_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Cps_Job_Portal_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -165,11 +187,21 @@ class Cps_job_portal {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Cps_job_portal_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Cps_Job_Portal_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 
+		$this->loader->add_action( 'wp_ajax_cps_multireg', $plugin_public, 'cps_process_multireg' );
+
+
+		$this->loader->add_action( 'wp_ajax_multireg_template', $plugin_public, 'cps_multireg_show_template' );
+
+
+		$this->loader->add_action( 'wp_ajax_cps_multireg_conditional', $plugin_public, 'cps_multireg_process_conditional' );
+
+		
 	}
 
 	/**
@@ -196,7 +228,7 @@ class Cps_job_portal {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Cps_job_portal_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Cps_Job_Portal_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

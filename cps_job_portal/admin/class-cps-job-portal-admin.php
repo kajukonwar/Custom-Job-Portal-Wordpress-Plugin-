@@ -6,8 +6,8 @@
  * @link       www.coffeepost.in
  * @since      1.0.0
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/admin
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Cps_job_portal
- * @subpackage Cps_job_portal/admin
+ * @package    Cps_Job_Portal
+ * @subpackage Cps_Job_Portal/admin
  * @author     Kaju Konwar <kaju.k2@gmail.com>
  */
-class Cps_job_portal_Admin {
+class Cps_Job_Portal_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -65,15 +65,15 @@ class Cps_job_portal_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Cps_job_portal_Loader as all of the hooks are defined
+		 * defined in Cps_Job_Portal_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Cps_job_portal_Loader will then create the relationship
+		 * The Cps_Job_Portal_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cps_job_portal-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cps-job-portal-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class Cps_job_portal_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Cps_job_portal_Loader as all of the hooks are defined
+		 * defined in Cps_Job_Portal_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Cps_job_portal_Loader will then create the relationship
+		 * The Cps_Job_Portal_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cps_job_portal-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cps-job-portal-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
